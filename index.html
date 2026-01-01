@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>単語トレーニング</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <nav>
+    <button onclick="showPage('home')">単語管理</button>
+    <button onclick="showPage('genrePage')">ジャンル管理</button>
+    <button onclick="showPage('settings')">問題を解く</button>
+  </nav>
+</header>
+
+<!-- 単語登録ページ -->
+<section id="home" class="page">
+
+  <!-- ★★★ 固定される領域（全部ここに入れる） ★★★ -->
+  <div class="fixed-top">
+
+    <h2>単語検索</h2>
+    <input id="searchWord" placeholder="単語検索" oninput="searchWords()" style="width: 200px; margin-bottom: 15px;">
+
+    <h2>単語登録</h2>
+    <input id="word" placeholder="単語">
+    <input id="wordAlts" placeholder="単語の別解（カンマ区切り）">
+    <input id="meaning" placeholder="意味">
+
+    <select id="genreSelectWord" onchange="updateSubGenreSelectWord()">
+      <option value="">ジャンルを選択</option>
+    </select>
+
+    <select id="subGenreSelectWord" onchange="updateSubSubGenreSelectWord()">
+      <option value="">サブジャンルを選択</option>
+    </select>
+
+    <select id="subSubGenreSelectWord">
+      <option value="">サブサブジャンルを選択</option>
+    </select>
+
+    <button onclick="addWord()">追加</button>
+
+  </div>
+  <!-- ★★★ 固定領域ここまで ★★★ -->
+
+  <h2 style="margin-top: 20px;padding-left: 150px;">登録した単語一覧</h2>
+  <div id="wordTree"></div>
+
+</section>
+
+<!-- ジャンル管理ページ -->
+<section id="genrePage" class="page" style="display:none;">
+  <h2>ジャンル登録</h2>
+
+  <div class="genre-input-area">
+    <input id="newGenre" placeholder="ジャンル名">
+    <button onclick="addGenre()">追加</button>
+  </div>
+
+  <hr>
+
+  <div id="genreTree"></div>
+</section>
+
+<!-- 設定ページ -->
+<section id="settings" class="page" style="display:none;">
+  <h1 class="setting-title">設定</h1>
+
+  <div class="setting-center">
+    <label>ジャンル：</label>
+    <select id="genreSelectSetting" onchange="updateSubGenreSelectSetting()">
+      <option value="all">すべてのジャンル</option>
+    </select>
+    <br><br>
+
+    <label>サブジャンル：</label>
+    <select id="subGenreSelectSetting" onchange="updateSubSubGenreSelectSetting()">
+      <option value="all">すべて</option>
+      <option value="">（サブジャンルなし）</option>
+    </select>
+    <br><br>
+
+    <label>サブサブジャンル：</label>
+    <select id="subSubGenreSelectSetting">
+      <option value="all">すべて</option>
+      <option value="">（サブサブジャンルなし）</option>
+    </select>
+    <br><br>
+
+    <label>出題数：</label>
+    <input id="quizCount" type="number"><br><br>
+
+    <label>モード：</label>
+    <select id="quizMode">
+      <option value="word">単語を答える</option>
+      <option value="meaning">意味を答える</option>
+    </select><br><br>
+
+    <button class="center-btn" onclick="startQuiz()">スタート</button>
+  </div>
+</section>
+
+<!-- クイズページ -->
+<section id="quiz" class="page" style="display:none;">
+  <h3 id="progress"></h3>
+  <div id="question" class="question"></div>
+
+  <div class="answer-area">
+    <input id="answer" placeholder="答え">
+    <button onclick="checkAnswer()">回答</button>
+  </div>
+
+  <div id="result" class="center"></div>
+
+  <button id="nextBtn" class="center-btn" onclick="goNext()" style="display:none;">次へ</button>
+</section>
+
+<!-- 結果ページ -->
+<section id="resultPage" class="page" style="display:none;">
+  <h2 id="score" class="center"></h2>
+  <button class="center-btn" onclick="restart()">もう一度解く</button>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>

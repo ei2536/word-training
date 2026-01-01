@@ -1,0 +1,194 @@
+/* 全体 */
+body {
+  font-family: sans-serif;
+  padding: 0;          /* ← 余白の原因だったので削除 */
+  margin: 0;
+  margin-top: 70px;    /* ← 固定ヘッダー分のスペースだけ残す */
+}
+
+/* 固定ヘッダー */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgb(175, 240, 184);
+  z-index: 1000;
+  padding: 10px 0;
+  border-bottom: 2px solid #ccc;
+}
+
+header nav {
+  padding-left: 50px;  /* ← 左の余白 */
+}
+
+nav button {
+  margin-right: 10px;
+  padding: 8px 12px;
+}
+
+/* ページ共通 */
+.page {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ★ 単語検索・単語登録の固定領域 ★ */
+#home .fixed-top {
+  position: sticky;
+  top: 60px;           /* ← ヘッダーの高さに合わせる */
+  background: white;
+  padding: 0;          /* ← 余白を完全に消す */
+  z-index: 10;
+  border-bottom: 2px solid #ddd;
+  padding-left: 150px;
+}
+
+.fixed-top h2 {
+  margin: 0;           /* ← h2 のデフォルト余白を消す */
+}
+
+.fixed-top input,
+.fixed-top select,
+.fixed-top button {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* ▼▼▼ ツリー構造（3階層対応） ▼▼▼ */
+
+#genrePage h2 {
+  position: sticky;
+  top: 60px;
+  background: white;
+  padding-left: 150px;
+  margin: 0;
+  z-index: 10;
+}
+.genre-input-area {
+  padding-left: 150px;
+}
+
+.tree-genre {
+  margin-top: 15px;
+  padding-left: 150px;
+}
+
+.tree-title {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.tree-sub {
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+.tree-sub-title {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+
+.tree-subsub {
+  margin-left: 50px;
+  margin-top: 8px;
+}
+
+.tree-subsub-title {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.tree-table-container {
+  margin-left: 70px;
+  margin-top: 10px;
+}
+
+/* ▼▼▼ 表（単語一覧） ▼▼▼ */
+
+.word-table {
+  width: 90%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.word-table th, .word-table td {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  text-align: center;
+}
+
+.word-table th {
+  background-color: #f0f0f0;
+}
+
+.small-btn {
+  padding: 3px 6px;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.deleteBtn {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.editBtn {
+  background-color: #44aaff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+/* ▼▼▼ クイズ・設定ページ ▼▼▼ */
+
+.setting-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.setting-center {
+  text-align: center;
+  font-size: 20px;
+}
+
+.center-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 25px;
+  font-size: 20px;
+}
+
+.question {
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.answer-area {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#answer {
+  font-size: 20px;
+  padding: 8px;
+  width: 200px;
+}
+
+.center {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 22px;
+}
