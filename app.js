@@ -1,18 +1,16 @@
 /* ============================================
    データ読み込み
 ============================================ */
-let words = JSON.parse(localStorage.getItem("words") || "[]");
+let words = [];
+let genres = {};
 
-/*
-  genres の構造（3階層）:
-  {
-    "英語": {
-      "文法": ["時制", "助動詞"],
-      "単語": ["動詞", "名詞"]
-    }
-  }
-*/
-let genres = JSON.parse(localStorage.getItem("genres") || "{}");
+fetch("words.json")
+  .then(res => res.json())
+  .then(data => {
+    words = data.words;
+    genres = data.genres;
+    init(); // ← 読み込み後に初期化
+  });
 
 let current = null;
 let mode = null;
@@ -306,8 +304,6 @@ function addWord() {
     enabled: true
   });
 
-  saveWords();
-
   document.getElementById("word").value = "";
   document.getElementById("wordAlts").value = "";
   document.getElementById("meaning").value = "";
@@ -321,7 +317,7 @@ setTimeout(() => {
 }
 
 function saveWords() {
-  localStorage.setItem("words", JSON.stringify(words));
+  // JSON保存はPC側で行うので何もしない
 }
 
 /* ============================================
